@@ -1,10 +1,13 @@
 App = React.createClass({
-  render() {
+
+  render: function() {
+    var tasks = TaskStore.fetchTasks();
+
     return (
-      <div>
-        <List />
+      <section>
+        <List tasks={tasks} />
         <NewTaskForm />
-      </div>
+      </section>
     );
   }
 });

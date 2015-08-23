@@ -1,20 +1,26 @@
 NewTaskForm = React.createClass({
-  onSubmit(event) {
+  onSubmit: function(event) {
     event.preventDefault();
 
     var taskContent = React.findDOMNode(this.refs.content).value;
 
-    Meteor.call("insertTask", {
-      content: taskContent
-    });
+    TaskStore.addTask(taskContent);
 
     React.findDOMNode(this.refs.content).value = "";
   },
-  render() {
+  
+  render: function() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <input type="text" ref="content" placeholder="Add a task..." />
-      </form>
+      <div className="ui vertical segment">
+        <h3 className="ui header">Add a Task</h3>
+        <form className="ui form" onSubmit={this.onSubmit}>
+          <div className="field">
+            <input type="text" ref="content" placeholder="Add a task..." />
+          </div>
+          
+          <button className="ui green button" type="submit">Submit</button>
+        </form>
+      </div>
     );
   }
 });
