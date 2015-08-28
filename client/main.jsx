@@ -8,6 +8,6 @@ TaskStore.on('change', function() {
   renderApp();
 });
 
-Meteor.startup(function () {
+Meteor.startup(function() {
   renderApp();
 });

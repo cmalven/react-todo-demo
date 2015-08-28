@@ -1,4 +1,5 @@
 NewTaskForm = React.createClass({
+  
   onSubmit: function(event) {
     event.preventDefault();
 
